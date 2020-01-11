@@ -39,10 +39,11 @@ app.get("api/waitlist", function(req, res) {
 })
 
 app.post("/reserve", function(req, res) {
+    console.log(tableArray)
     res.json(tableArray)
     var data = req.body
     var newReservation = new Reservation(data.name, data.email, data.phone, data.ID)
-    if (tableArray.length = 5){
+    if (tableArray.length === 5){
         waitListArray.push(newReservation)
         console.log(waitListArray)
     }
@@ -56,6 +57,7 @@ app.post("/tables", function(req, res) {
     tableArray = []
     waitListArray = []
     console.log(tableArray)
+    console.log("data been cleared")
 })
 
 app.listen(PORT, function(){
