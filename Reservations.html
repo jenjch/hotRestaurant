@@ -73,7 +73,26 @@
 	    </footer>
 
 	</div>
-
+	<script>
+		$(".submit").on("click", function(event){
+            event.preventDefault()
+            var data = {
+                name: $("#reserve_name").val(),
+                phone: $("#reserve_phone").val(),
+                email: $("#reserve_email").val(),
+                ID: $("#reserve_uniqueID").val(),
+            }
+            $.post("/reserve", data, function(data, status){
+              console.log(data)
+              if (data.length === 5) {
+                alert("tables are full, moving you to the waitlist")
+              }
+              else {
+                alert("reservation has been made")
+              }
+            })
+        })
+	</script>
 </body>
 </html>
 
