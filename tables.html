@@ -62,9 +62,17 @@
     </footer>
 
   <script type="text/javascript">
+    $.get("/api/tables", function(data, status) {
+      console.log(data)
+      for (i of data) {
+        $("#tableList").append(`<div>${i.name} ${i.email} ${i.phone} ${i.ID}</div>`)
+      }
+    })
+    
+    
     $("#clear").click(function() {
       $.post("/tables")
-      alert("Clearing Data")
+      $("#tableList").empty()
     })
   </script>
 </body>

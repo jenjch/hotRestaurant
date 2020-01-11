@@ -82,7 +82,7 @@
                 email: $("#reserve_email").val(),
                 ID: $("#reserve_uniqueID").val(),
             }
-            $.post("/reserve", data, function(data, status){
+            $.post("/reserve", data, function(data){
               console.log(data)
               if (data.length === 5) {
                 alert("tables are full, moving you to the waitlist")
