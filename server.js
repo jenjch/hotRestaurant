@@ -39,9 +39,10 @@ app.get("api/waitlist", function(req, res) {
 })
 
 app.post("/reserve", function(req, res) {
+    res.json(tableArray)
     var data = req.body
     var newReservation = new Reservation(data.name, data.email, data.phone, data.ID)
-    if (tableArray.length > 5){
+    if (tableArray.length = 5){
         waitListArray.push(newReservation)
         console.log(waitListArray)
     }
